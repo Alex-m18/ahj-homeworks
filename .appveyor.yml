@@ -1,18 +1,17 @@
 image: Ubuntu1804
-environment:
-  nodejs_version: "10"
+stack: "node 10"
 branches:
   only:
     - master
 cache: node_modules
 install:
   - cd yarn-cd
-  - npm install
+  - yarn install
 build: off
 build_script:
-  - npm run build
+  - yarn build
 test_script:
-  - npm run lint && npm test
+  - yarn test
 deploy_script:
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
