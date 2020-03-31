@@ -17,4 +17,7 @@ deploy_script:
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
+  - mkdir 01
+  - mv dist/* 01
+  - mv 01 dist/01
   - npx push-dir --dir=dist --branch=gh-pages --force --verbose
