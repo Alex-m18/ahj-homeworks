@@ -1,21 +1,21 @@
 image: Ubuntu1804
 environment:
-nodejs_version: "10"
+  nodejs_version: "10"
 branches:
-only:
-- master
+  only:
+    - master
 cache: node_modules
 install:
-- cd yarn-cd
-- npm install
+  - cd yarn-cd
+  - npm install
 build: off
 build_script:
-- npm run build
+  - npm run build
 test_script:
-- npm run lint && npm test
+  - npm run lint && npm test
 deploy_script:
-- git config --global credential.helper store
-- git config --global user.name AppVeyor
-- git config --global user.email ci@appveyor.com
-- echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
-- npx push-dir --dir=dist --branch=gh-pages --force --verbose
+  - git config --global credential.helper store
+  - git config --global user.name AppVeyor
+  - git config --global user.email ci@appveyor.com
+  - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
+  - npx push-dir --dir=dist --branch=gh-pages --force --verbose
