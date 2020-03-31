@@ -1,5 +1,6 @@
 image: Ubuntu1804
 stack: node 10
+branches:
 only:
 - master
 cache: node_modules
