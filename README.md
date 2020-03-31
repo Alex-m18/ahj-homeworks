@@ -1,10 +1,8 @@
-https://alex-m18.github.io/ahj-homeworks/
-
 [![Build status](https://ci.appveyor.com/api/projects/status/c7ddm2v533f1eped?svg=true)](https://ci.appveyor.com/project/Alex-m18/ahj-homeworks)
 
 # Домашние задания к курсу «Продвинутый JavaScript в браузере»
 
-1. [Рабочее окружение](env/) 
+1. [Рабочее окружение](env/)                  https://alex-m18.github.io/ahj-homeworks/01/
 1. [DOM](dom/)
 1. [Обработка событий](events/)
 1. [Организация тестирования](testing/)
