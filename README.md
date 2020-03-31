@@ -2,7 +2,7 @@
 
 # Домашние задания к курсу «Продвинутый JavaScript в браузере»
 
-1. [Рабочее окружение](env/)                  https://alex-m18.github.io/ahj-homeworks/01/
+1. [Рабочее окружение](env/) ( https://alex-m18.github.io/ahj-homeworks/01/ )
 1. [DOM](dom/)
 1. [Обработка событий](events/)
 1. [Организация тестирования](testing/)
