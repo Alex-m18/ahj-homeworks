@@ -31,7 +31,6 @@ deploy_script:
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
-  - cp ../index.html ../gh/index.html
   - mkdir ../gh/env
   - mv ../yarn-cd/dist/* ../gh/env
   - mkdir ../gh/dom/1
