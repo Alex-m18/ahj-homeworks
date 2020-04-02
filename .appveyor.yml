@@ -9,25 +9,33 @@ install:
   - yarn install
   - cd ../dom
   - yarn install
+  - cd ../dom2
+  - yarn install
 build: off
 build_script:
   - cd ../yarn-cd
   - yarn build
   - cd ../dom
   - yarn build
+  - cd ../dom2
+  - yarn build
 test_script:
   - cd ../yarn-cd
   - yarn test
   - cd ../dom
+  - yarn test
+  - cd ../dom2
   - yarn test
 deploy_script:
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
-  - mkdir ../gh
-  - mkdir ../gh/01
-  - mv ../yarn-cd/dist/* ../gh/01
-  - mkdir ../gh/02
-  - mv ../dom/dist/* ../gh/02
+  - cp ../index.html ../gh/index.html
+  - mkdir ../gh/env
+  - mv ../yarn-cd/dist/* ../gh/env
+  - mkdir ../gh/dom/1
+  - mv ../dom/dist/* ../gh/dom/1
+  - mkdir ../gh/dom/2
+  - mv ../dom2/dist/* ../gh/dom/2
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
