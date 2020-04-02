@@ -4,14 +4,18 @@ export default function circleSorting(data) {
   const { length } = Object.keys(data[0]);
 
   const comparator = (a, b) => {
-    if (sortingMethod === 'asc') return Object.values(a)[sortingColumn] > Object.values(b)[sortingColumn];
-    return Object.values(a)[sortingColumn] < Object.values(b)[sortingColumn];
+    if (sortingMethod === 'asc') {
+      if (Object.values(a)[sortingColumn] > Object.values(b)[sortingColumn]) return 1;
+      return -1;
+    }
+    if (Object.values(a)[sortingColumn] > Object.values(b)[sortingColumn]) return -1;
+    return 1;
   };
 
   return () => {
     sortingMethod = (sortingMethod === 'asc') ? 'desc' : 'asc';
     if (sortingMethod === 'asc') sortingColumn = (sortingColumn + 1) % length;
-    const newData = data.sort(comparator);
-    return { data: newData, sortingColumn, sortingMethod };
+    data.sort(comparator);
+    return { data, sortingColumn, sortingMethod };
   };
 }
