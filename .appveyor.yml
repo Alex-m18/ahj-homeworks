@@ -3,7 +3,6 @@ stack: "node 10"
 branches:
   only:
     - master
-cache: node_modules
 install:
   - cd yarn-cd
   - yarn install
