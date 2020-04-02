@@ -5,19 +5,29 @@ branches:
     - master
 cache: node_modules
 install:
-  - cd yarn-cd
+  - cd ~/yarn-cd
+  - yarn install
+  - cd ~/dom
   - yarn install
 build: off
 build_script:
+  - cd ~/yarn-cd
+  - yarn build
+  - cd ~/dom
   - yarn build
 test_script:
+  - cd ~/yarn-cd
+  - yarn test
+  - cd ~/dom
   - yarn test
 deploy_script:
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
-  - mkdir 01
-  - mv dist/* 01
-  - mv 01 dist/01
-  - npx push-dir --dir=dist --branch=gh-pages --force --verbose
+  - mkdir ~/gh
+  - mkdir ~/gh/01
+  - mv ~/yarn-cd/dist/* ~/gh/01
+  - mkdir ~/gh/02
+  - mv ~/dom/dist/* ~/gh/02
+  - npx push-dir --dir=~/gh --branch=gh-pages --force --verbose
