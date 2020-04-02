@@ -33,6 +33,7 @@ deploy_script:
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
   - mkdir ../gh/env
   - mv ../yarn-cd/dist/* ../gh/env
+  - mkdir ../gh/dom
   - mkdir ../gh/dom/1
   - mv ../dom/dist/* ../gh/dom/1
   - mkdir ../gh/dom/2
