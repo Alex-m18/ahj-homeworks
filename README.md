@@ -4,7 +4,7 @@
 
 1. [Рабочее окружение](env/) ( https://alex-m18.github.io/ahj-homeworks/env/ )
 1. [DOM](dom/) ( https://alex-m18.github.io/ahj-homeworks/dom/1/ ; https://alex-m18.github.io/ahj-homeworks/dom/2/ )
-1. [Обработка событий](events/)
+1. [Обработка событий](events/) ( https://alex-m18.github.io/ahj-homeworks/events/1/ )
 1. [Организация тестирования](testing/)
 1. [Работа с HTML-формами](forms/)
 1. [Работа с файлами, DnD](dnd/)
