@@ -4,7 +4,7 @@ branches:
   only:
     - master
 install:
-  - cd yarn-cd
+  - cd env
   - yarn install
   - cd ../dom
   - yarn install
@@ -16,7 +16,7 @@ install:
   - yarn install
 build: off
 build_script:
-  - cd ../yarn-cd
+  - cd ../env
   - yarn build
   - cd ../dom
   - yarn build
@@ -27,7 +27,7 @@ build_script:
   - cd ../events2
   - yarn build
 test_script:
-  - cd ../yarn-cd
+  - cd ../env
   - yarn test
   - cd ../dom
   - yarn test
@@ -43,7 +43,7 @@ deploy_script:
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
   - mkdir ../gh/env
-  - mv ../yarn-cd/dist/* ../gh/env
+  - mv ../env/dist/* ../gh/env
   - mkdir ../gh/dom
   - mkdir ../gh/dom/1
   - mv ../dom/dist/* ../gh/dom/1
