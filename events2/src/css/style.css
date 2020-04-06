@@ -1,3 +1,8 @@
+::-webkit-input-placeholder {color:#c0392b; font-style: oblique; }
+::-moz-placeholder          {color:#c0392b; font-style: oblique;}/* Firefox 19+ */
+:-moz-placeholder           {color:#c0392b; font-style: oblique;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#c0392b; font-style: oblique;}
+
 html,
 body {
   height: 100%;
@@ -27,24 +32,19 @@ form {
   font-weight: 700;
 }
 
-.tasks_input__title {
-  margin-top: 10px;
-}
-.all_task__title {
-  margin-bottom: 100px;
-}
-
-
 .task_input {
   display: block;
   margin: 21px;
+}
+placeholder {
+  font-style: oblique;
 }
 
 input {
   font-size: 16px;
   height: 43px;
-  
   width: 272px;
+  text-indent: 5px;
 }
 
 .pinned,
@@ -53,37 +53,21 @@ input {
   margin: 11px 21px;
 }
 
-.task_pinned,
 .task {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  text-indent: 10px;
+  text-indent: 5px;
   height: 43px;
   border: 1px solid grey;
   border-radius: 14px;
   margin: 0;
 }
 
-.tasks__input {
-  flex-grow: 1;
-  padding: 10px;
-  border-radius: 25px;
-  border: 1px solid gray;
-}
-
-.tasks__list {
-  margin-top: 10px;
-}
-
-.task__title {
-  flex-grow: 1;
-  padding: 10px 5px;
-}
-
 .not_found {
   font-weight: normal;
+  color: blue;
 }
 
 .pinned .option_img {
@@ -103,23 +87,23 @@ input {
 
 .option_img:hover {
   opacity: 0.6;
- filter: invert(20%);
- }
+  filter: invert(20%);
+}
 
 .form_hint {
-	background: #d45252;
-	border-radius: 3px 3px 3px 3px;
-	color: white;
-	margin: 2px 4px;
-	padding: 3px 6px;
-	z-index: 999; 
-	position: absolute;
+  background: #d45252;
+  border-radius: 3px 3px 3px 3px;
+  color: white;
+  margin: 2px 4px;
+  padding: 3px 6px;
+  z-index: 999;
+  position: absolute;
 }
 
 .form_hint::before {
-	content: "\25C0";
-	color:#d45252;
-	position: absolute;
-	top:1px;
-	left:-6px;
+  content: "\25C0";
+  color: #d45252;
+  position: absolute;
+  top: 1px;
+  left: -6px;
 }
