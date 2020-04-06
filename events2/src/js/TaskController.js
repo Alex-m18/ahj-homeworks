@@ -1,4 +1,3 @@
-// import TaskManager from './TaskManager';
 import Task from './Task';
 
 export default class TaskController {
@@ -9,8 +8,8 @@ export default class TaskController {
 
   init() {
     this.manager.addPinnedClickListener(this.onPinnedClick.bind(this));
-    this.manager.addKeyUpListener(this.onEnterPressed.bind(this));
     this.manager.addKeyUpListener(this.filterTasks.bind(this));
+    this.manager.addKeyUpListener(this.onEnterPressed.bind(this));
 
     this.manager.drawUi();
     this.tasks.push(new Task('Test task', true));
@@ -35,6 +34,7 @@ export default class TaskController {
         return;
       }
       this.tasks.push(new Task(cleanText));
+      this.manager.clearInput();
       this.manager.redrawTasks(this.tasks);
     }
   }

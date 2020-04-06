@@ -86,6 +86,10 @@ export default class TaskManager {
     this.errorSpan.hidden = true;
   }
 
+  clearInput() {
+    this.inputEl.value = '';
+  }
+
   bindToDOM(container) {
     if (!(container instanceof HTMLElement)) {
       throw new Error('container is not HTMLElement');
