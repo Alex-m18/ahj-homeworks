@@ -8,7 +8,7 @@ export default class TaskController {
 
   init() {
     this.manager.addPinnedClickListener(this.onPinnedClick.bind(this));
-    this.manager.addKeyUpListener(this.filterTasks.bind(this));
+    this.manager.addKeyUpListener(this.onKeyUp.bind(this));
     this.manager.addKeyUpListener(this.onEnterPressed.bind(this));
 
     this.manager.drawUi();
@@ -17,33 +17,41 @@ export default class TaskController {
     this.tasks.push(new Task('Test task 3'));
     this.tasks.push(new Task('Test task 4'));
 
-    this.manager.redrawTasks(this.tasks);
+    this.redrawTasks();
+  }
+
+  redrawTasks() {
+    this.manager.redrawTasks(TaskController.filterTasks(this.manager.inputValue, this.tasks));
   }
 
   onPinnedClick(id) {
     const task = this.tasks.find((o) => o.id === id);
     task.pinned = !task.pinned;
-    this.manager.redrawTasks(this.tasks);
+    this.redrawTasks();
   }
 
-  onEnterPressed(params) {
-    const cleanText = params.text.trim();
-    if (params.keyCode === 13) {
+  onEnterPressed(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      const cleanText = this.manager.inputValue.trim();
       if (cleanText === '') {
         this.manager.showErrorSpan();
         return;
       }
       this.tasks.push(new Task(cleanText));
       this.manager.clearInput();
-      this.manager.redrawTasks(this.tasks);
+      this.redrawTasks();
     }
   }
 
-  filterTasks(params) {
-    const cleanText = params.text.trim().toLowerCase();
-    if (cleanText.length) this.manager.hideErrorSpan();
-    const filteredTasks = this.tasks.filter((task) => task.pinned
-      || task.description.toLowerCase().includes(cleanText));
-    this.manager.redrawTasks(filteredTasks);
+  onKeyUp() {
+    if (this.manager.inputValue.length) this.manager.hideErrorSpan();
+    this.redrawTasks();
   }
 }
+
+TaskController.filterTasks = (string, tasks) => {
+  const cleanString = string.trim().toLowerCase();
+  return tasks.filter((task) => task.pinned
+    || task.description.toLowerCase().includes(cleanString));
+};

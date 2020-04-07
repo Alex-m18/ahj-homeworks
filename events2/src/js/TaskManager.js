@@ -22,7 +22,7 @@ export default class TaskManager {
         <div class="task_input">
           <label class="tasks_input__title" for="tasks_input">TOP Tasks</label><br>
           <input type="text" class="tasks_input" id="task_input" placeholder="Enter a name for the new task"><br>
-          <span class="form_hint" hidden>The field is empty! Enter a new task!"</span>
+          <span class="form_hint" hidden>The field is empty! Enter a new task!</span>
         </div>
         <div class="pinned">
           <label class="pinned__title" for="task_pinned">Pinned:</label><br>
@@ -86,6 +86,10 @@ export default class TaskManager {
     this.errorSpan.hidden = true;
   }
 
+  get inputValue() {
+    return this.inputEl.value;
+  }
+
   clearInput() {
     this.inputEl.value = '';
   }
@@ -111,8 +115,8 @@ export default class TaskManager {
   }
 
   onKeyUp(event) {
-    const text = event.currentTarget.value;
-    this.keyUpListeners.forEach((o) => o.call(null, { text, keyCode: event.keyCode }));
+    // const text = event.currentTarget.value;
+    this.keyUpListeners.forEach((o) => o.call(null, event));
   }
 
   checkBinding() {
