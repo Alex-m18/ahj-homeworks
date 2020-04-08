@@ -14,6 +14,8 @@ install:
   - yarn install
   - cd ../events2
   - yarn install
+  - cd ../testing
+  - yarn install
 build: off
 build_script:
   - cd ../env
@@ -26,6 +28,8 @@ build_script:
   - yarn build
   - cd ../events2
   - yarn build
+  - cd ../testing
+  - yarn build
 test_script:
   - cd ../env
   - yarn test
@@ -36,6 +40,8 @@ test_script:
   - cd ../events
   - yarn test
   - cd ../events2
+  - yarn test
+  - cd ../testing
   - yarn test
 deploy_script:
   - git config --global credential.helper store
@@ -54,4 +60,7 @@ deploy_script:
   - mv ../events/dist/* ../gh/events/1
   - mkdir ../gh/events/2
   - mv ../events2/dist/* ../gh/events/2
+  - mkdir ../gh/testing
+  - mkdir ../gh/testing/1
+  - mv ../testing/dist/* ../gh/testing/1
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
