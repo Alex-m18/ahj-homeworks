@@ -42,7 +42,6 @@ test_script:
   - cd ../events2
   - yarn test
   - cd ../testing
-  - yarn start
   - yarn test
 deploy_script:
   - git config --global credential.helper store
