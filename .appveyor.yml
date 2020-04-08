@@ -30,9 +30,6 @@ build_script:
   - yarn build
   - cd ../testing
   - yarn build
-before_test:
-  - cd ../testing
-  - yarn start
 test_script:
   - cd ../env
   - yarn test
@@ -46,7 +43,8 @@ test_script:
   - yarn test
   - cd ../testing
   - yarn start &
-  - timeout 5 yarn test
+  - sleep 10
+  - yarn test
 deploy_script:
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
