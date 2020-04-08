@@ -30,6 +30,9 @@ build_script:
   - yarn build
   - cd ../testing
   - yarn build
+before_test:
+  - cd ../testing
+  - yarn start
 test_script:
   - cd ../env
   - yarn test
