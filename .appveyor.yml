@@ -50,6 +50,7 @@ test_script:
   - sleep 10
   - yarn test
   - cd ../forms
+  - kill webpack-dev-server
   - yarn start &
   - sleep 10
   - yarn test
