@@ -6,7 +6,7 @@
 1. [DOM](dom/) ( https://alex-m18.github.io/ahj-homeworks/dom/1/ ; https://alex-m18.github.io/ahj-homeworks/dom/2/ )
 1. [Обработка событий](events/) ( https://alex-m18.github.io/ahj-homeworks/events/1/ ; https://alex-m18.github.io/ahj-homeworks/events/2/ )
 1. [Организация тестирования](testing/) ( https://alex-m18.github.io/ahj-homeworks/testing/1/ )
-1. [Работа с HTML-формами](forms/)
+1. [Работа с HTML-формами](forms/) ( https://alex-m18.github.io/ahj-homeworks/forms/1/ )
 1. [Работа с файлами, DnD](dnd/)
 1. [Работа с HTTP](http/)
 1. [EventSource, WebSockets](sse-ws/)

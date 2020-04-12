@@ -28,13 +28,12 @@ body {
 
 body {
   font: 14px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-  font-size: 14px;
   font-weight: normal;
 }
 
 h3 {
   color: #333333;
-  font-size: 18px;
+  font-size: 1,2857em;
   margin: 20px 0 10px;
 
 }
@@ -54,7 +53,7 @@ h3 {
 .card_image {
   width: 4.9em;
   height: 3.1em;
-  margin-right: 4px;
+  margin-right: 0.2857em;
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -74,10 +73,10 @@ h3 {
   -o-filter: none;
   filter: none;
   filter: none; /* IE 6-9 */
-  outline-style: solid;
+  outline-style: outset;
   outline-color: green;
   outline-width: -2px;
-}
+ }
 
 
 [data-id=mir] {
@@ -104,25 +103,23 @@ h3 {
 }
 
 .card_input {
-  height: 34px;
-  width: 196px;
+  height: 2.4286em;
+  width: 14em;
   text-indent: 3px;
   margin-top: 12px;
   padding: 6px 12px;
 }
 
 .validate_button {
-  height: 48px;
-  width: 125px;
+  height: 2.4286e;
+  width: 9em;
   font-weight: 500;
   color: #ffffff;
   margin-top: 12px;
   margin-left: 10px;
   background: #5cb85c;
   padding: 6px 12px;
-
 }
-
 
 .form_hint {
   background: #000000;
@@ -144,6 +141,8 @@ h3 {
 
 .message_title {
   display: inline-flex;
+  margin-top: 10px;
+  flex-wrap: nowrap;
 }
 
 .result_img {

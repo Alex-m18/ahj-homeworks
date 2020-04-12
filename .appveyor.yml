@@ -16,6 +16,8 @@ install:
   - yarn install
   - cd ../testing
   - yarn install
+  - cd ../forms
+  - yarn install
 build: off
 build_script:
   - cd ../env
@@ -30,6 +32,8 @@ build_script:
   - yarn build
   - cd ../testing
   - yarn build
+  - cd ../forms
+  - yarn build
 test_script:
   - cd ../env
   - yarn test
@@ -42,6 +46,10 @@ test_script:
   - cd ../events2
   - yarn test
   - cd ../testing
+  - yarn start &
+  - sleep 10
+  - yarn test
+  - cd ../forms
   - yarn start &
   - sleep 10
   - yarn test
@@ -65,4 +73,9 @@ deploy_script:
   - mkdir ../gh/testing
   - mkdir ../gh/testing/1
   - mv ../testing/dist/* ../gh/testing/1
+  - mkdir ../gh/forms
+  - mkdir ../gh/forms/1
+  - mv ../forms/dist/* ../gh/forms/1
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
+cache:
+  - node_modules
