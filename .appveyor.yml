@@ -18,6 +18,8 @@ install:
   - yarn install
   - cd ../forms
   - yarn install
+  - cd ../forms2
+  - yarn install
 build: off
 build_script:
   - cd ../env
@@ -33,6 +35,8 @@ build_script:
   - cd ../testing
   - yarn build
   - cd ../forms
+  - yarn build
+  - cd ../forms2
   - yarn build
 test_script:
   - cd ../env
@@ -50,7 +54,12 @@ test_script:
   - sleep 10
   - yarn test
   - cd ../forms
-  - jobs
+  - kill 1
+  - yarn start &
+  - sleep 10
+  - yarn test
+  - cd ../forms2
+  - kill 1
   - yarn start &
   - sleep 10
   - yarn test
@@ -77,6 +86,8 @@ deploy_script:
   - mkdir ../gh/forms
   - mkdir ../gh/forms/1
   - mv ../forms/dist/* ../gh/forms/1
+  - mkdir ../gh/forms/2
+  - mv ../forms2/dist/* ../gh/forms/2
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
 cache:
   - node_modules
