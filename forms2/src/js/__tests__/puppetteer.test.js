@@ -5,7 +5,7 @@ jest.setTimeout(10000);
 describe('listEditor widget', () => {
   let browser = null;
   let page = null;
-  const baseUrl = 'http://localhost:8080';
+  const baseUrl = 'http://localhost:8082';
   beforeAll(async () => {
     browser = await puppetteer.launch({
       // headless: false,
