@@ -20,6 +20,8 @@ install:
   - yarn install
   - cd ../forms2
   - yarn install
+  - cd ../dnd
+  - yarn install
 build: off
 build_script:
   - cd ../env
@@ -37,6 +39,8 @@ build_script:
   - cd ../forms
   - yarn build
   - cd ../forms2
+  - yarn build
+  - cd ../dnd
   - yarn build
 test_script:
   - cd ../env
@@ -60,6 +64,8 @@ test_script:
   - cd ../forms2
   - yarn start &
   - sleep 10
+  - yarn test
+  - cd ../dnd
   - yarn test
 deploy_script:
   - git config --global credential.helper store
@@ -86,6 +92,9 @@ deploy_script:
   - mv ../forms/dist/* ../gh/forms/1
   - mkdir ../gh/forms/2
   - mv ../forms2/dist/* ../gh/forms/2
+  - mkdir ../gh/dnd
+  - mkdir ../gh/dnd/1
+  - mv ../dnd/dist/* ../gh/dnd/1
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
 cache:
   - node_modules
