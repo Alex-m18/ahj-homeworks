@@ -34,7 +34,6 @@ export default class TrelloColumn {
 
   addTask(content) {
     const widget = new TrelloTaskWidget(content);
-    // widget.bindToDOM(this.widget.element);
     widget.init();
 
     const task = new TrelloTask(widget);
@@ -55,3 +54,15 @@ export default class TrelloColumn {
     this.update();
   }
 }
+
+TrelloColumn.fromObject = (object, widget) => {
+  const column = new TrelloColumn(widget);
+  object.tasks.forEach((t) => {
+    const taskWidget = TrelloTaskWidget.fromObject(t.widget);
+    taskWidget.init();
+    const task = TrelloTask.fromObject(t, taskWidget);
+    task.init();
+    column.tasks.push(task);
+  });
+  return column;
+};

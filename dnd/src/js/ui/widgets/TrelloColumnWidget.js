@@ -94,3 +94,9 @@ export default class TrelloColumnWidget {
     }
   }
 }
+
+TrelloColumnWidget.fromObject = (object) => {
+  const widget = new TrelloColumnWidget(object.name);
+  widget.id = object.id;
+  return widget;
+};

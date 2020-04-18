@@ -53,3 +53,9 @@ export default class TrelloTaskWidget {
   //   this.deleteEventListeners.forEach((o) => o.call(null, this.id));
   // }
 }
+
+TrelloTaskWidget.fromObject = (object) => {
+  const widget = new TrelloTaskWidget(object.content);
+  widget.id = object.id;
+  return widget;
+};

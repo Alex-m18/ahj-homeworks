@@ -12,35 +12,11 @@ export default class Trello {
     this.widget.addOnAddAnotherClickEventListener(this.onAddAnotherClick.bind(this));
     this.widget.addOnDragTaskEventListener(this.onDragTask.bind(this));
 
-    this.hardCode();
     this.update();
   }
 
-  hardCode() {
-    const todoColumn = this.addColumn('ToDo');
-    const inProgressColumn = this.addColumn('In progress');
-    const doneColumn = this.addColumn('Done');
-
-    todoColumn.addTask('Welcome to Hrello!');
-    todoColumn.addTask('This is a card');
-    todoColumn.addTask('Click on a card to see what’s behind it.');
-    todoColumn.addTask("You can't attach pictures and files...");
-    todoColumn.addTask('... any kind of hyperlink ...');
-    todoColumn.addTask('... or checklists.');
-
-    inProgressColumn.addTask('Invite your team to this board using the Add Members button');
-    inProgressColumn.addTask("Drag people onto a card to indicate that they're responsible for it.");
-    inProgressColumn.addTask('Use color-coded labels for organization');
-    inProgressColumn.addTask('Make as many lists as you need!');
-    inProgressColumn.addTask('Try dragging cards anywhere.');
-    inProgressColumn.addTask('Finished with a card? Archive it.');
-
-    doneColumn.addTask('To learn more tricks, check out the guide.');
-    doneColumn.addTask('Use as many boards as you want. Well make more!');
-    doneColumn.addTask('Want to use keyboard shortcuts? We have them!');
-    doneColumn.addTask('Want updates on new features?');
-    doneColumn.addTask('Need help?');
-    doneColumn.addTask('Want current tips, usage examples, or API info?');
+  writeState() {
+    localStorage.setItem('trello', JSON.stringify(this));
   }
 
   addColumn(name) {
@@ -59,6 +35,7 @@ export default class Trello {
   }
 
   update() {
+    this.writeState();
     this.widget.update(this.columns);
   }
 
@@ -82,3 +59,15 @@ export default class Trello {
     this.update();
   }
 }
+
+Trello.fromObject = (object, widget) => {
+  const trello = new Trello(widget);
+  object.columns.forEach((c) => {
+    const columnWidget = TrelloColumnWidget.fromObject(c.widget);
+    columnWidget.init();
+    const column = TrelloColumn.fromObject(c, columnWidget);
+    column.init();
+    trello.columns.push(column);
+  });
+  return trello;
+};

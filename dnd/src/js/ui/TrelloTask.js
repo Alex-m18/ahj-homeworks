@@ -19,3 +19,8 @@ export default class TrelloTask {
   //   this.deleteEventListeners.push(callback);
   // }
 }
+
+TrelloTask.fromObject = (object, widget) => {
+  const task = new TrelloTask(widget);
+  return task;
+};
