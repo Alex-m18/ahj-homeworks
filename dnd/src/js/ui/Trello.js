@@ -26,6 +26,7 @@ export default class Trello {
 
     const column = new TrelloColumn(widget);
     column.init();
+    column.onStateChanged = this.writeState.bind(this);
 
     this.columns.push(column);
 
@@ -67,6 +68,7 @@ Trello.fromObject = (object, widget) => {
     columnWidget.init();
     const column = TrelloColumn.fromObject(c, columnWidget);
     column.init();
+    column.onStateChanged = trello.writeState.bind(trello);
     trello.columns.push(column);
   });
   return trello;

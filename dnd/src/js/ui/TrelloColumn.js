@@ -5,6 +5,7 @@ export default class TrelloColumn {
   constructor(widget) {
     this.widget = widget;
     this.tasks = [];
+    this.onStateChanged = null;
   }
 
   init() {
@@ -43,6 +44,7 @@ export default class TrelloColumn {
 
     this.hideAddTaskForm();
     this.update();
+    this.onStateChanged.call(null);
   }
 
   hideAddTaskForm() {
@@ -52,6 +54,7 @@ export default class TrelloColumn {
   deleteTask(id) {
     this.tasks = this.tasks.filter((o) => o.id !== id);
     this.update();
+    this.onStateChanged.call(null);
   }
 }
 
