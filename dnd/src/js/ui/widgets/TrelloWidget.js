@@ -69,6 +69,7 @@ export default class TrelloWidget {
   // }
 
   onMouseDown(event) {
+    if (event.target.classList.contains('delete_task')) return;
     if (!event.target.closest('.task')) return;
     event.preventDefault();
 
