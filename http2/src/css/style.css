@@ -1,0 +1,347 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.2;
+  font-family: 'Roboto', sans-serif;
+  color: #101010;
+  text-align: left;
+  background-color: snow;
+  margin-left: 1.25em;
+  margin-top: 1.25em;
+}
+
+.help_desk_widget {
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 47.25em;
+  height: auto;
+  padding: .25em;
+  border: 1px solid silver;
+  border-radius: .5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.ticket_add_btn {
+  text-align: center;
+  height: 1.2em;
+  padding: 0.5em .75em;
+  margin: .25em 0 .75em;
+  border: 1px solid grey;
+  border-radius: .5em;
+  background-color: LightYellow;
+  transition-duration: 0.1s;
+
+}
+
+.cancel_btn:hover,
+.ok_btn:hover,
+.ticket_add_btn:hover {
+  color: white;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+.ok_btn:hover,
+.ticket_add_btn:hover {
+  background-color: #4CAF50;
+}
+
+.cancel_btn:hover {
+  background-color: red;
+}
+
+.tickets_area {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: auto;
+}
+
+.ticket {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  /*  align-items: flex-start;*/
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 0.1em;
+  border: 1px solid grey;
+  background-color: beige;
+}
+
+.ticket_main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: .25em 0;
+}
+
+.ticket_description {
+  margin-bottom: 0.1em;
+}
+
+
+.ticket_status,
+.ticket_edit,
+.ticket_delete {
+  width: 2.2em;
+  height: 2.05em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition-duration: 0.1s;
+  margin: 0 .25em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ticket_status:hover,
+.ticket_edit:hover,
+.ticket_delete:hover {
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ticket_add_btn:active,
+.ticket_status:active,
+.ticket_edit:active,
+.ticket_delete:active,
+.close:active,
+.cancel_btn:active,
+.ok_btn:active {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ticket_status {
+  background-image: url("../img/ring.svg");
+}
+
+.ticket_status.checked {
+  background-image: url("../img/ok_r.svg");
+}
+
+.ticket_edit {
+  background-image: url("../img/pencil_r.svg");
+}
+
+.ticket_delete {
+  background-image: url("../img/close.svg");
+}
+
+.ticket_name {
+  width: 31em;
+  height: auto;
+  text-align: left;
+  padding: .25em;
+  /*  border: 1px solid red;*/
+}
+
+.ticket_description {
+/*  display: block;*/
+  /*
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+*/
+  width: 29.1em;
+  height: auto;
+  text-align: left;
+  padding: .25em;
+  margin-left: 2.65em;
+  padding: .25em;
+  background-color: beige;
+  /*  border: 1px solid grey;*/
+  display: none;
+}
+
+.ticket_description.show {
+  display: block;
+}
+
+.ticket_time_stamp {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  width: 8.4em;
+  height: auto;
+  text-align: right;
+  padding: .25em;
+}
+
+.ticket_action {
+  width: 7em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* End help_desk_widget */
+
+
+/* Start modal form */
+
+
+.modal {
+  position: fixed;
+  top: 0; 
+   right: 0; 
+   bottom: 0; 
+   left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+  -webkit-transition: opacity .4s ease-in;
+  -moz-transition: opacity .4s ease-in;
+  transition: opacity .4s ease-in;
+  display: none;
+  pointer-events: none;
+}
+
+.modal.show { 
+  display: block;
+  pointer-events: auto;
+}
+
+.modal > div {
+  width: 30.75em;
+  height: auto;
+  position: relative;
+  margin: 15% auto;
+  padding: .5em 1.25em;
+  border: .125em solid grey;
+  border-radius: 1em;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+
+.close_btn {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 1.5625em;
+  position: absolute;
+  right: -.75em;
+  text-align: center;
+  top: -.625em;
+  width: 1.5em;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: .75em;
+  -moz-border-radius: .75em;
+  border-radius: .75em;
+  -moz-box-shadow: .0625em .0625em .1875em #000;
+  -webkit-box-shadow: .0625em .0625em .1875em #000;
+  box-shadow: .0625em .0625em .1875em #000;
+}
+
+.close:hover {
+  background: #ff0000;
+}
+
+.title {
+  text-align: center;
+}
+
+.task_input {
+  width: 100%;
+  height: auto;
+}
+
+.task_name_title,
+.task_description_title {
+  font-weight: bold;
+}
+
+.task_name,
+.task_description {
+  width: 98%;
+  height: auto;
+  padding: .25em;
+  margin-top: .125em;
+  margin-bottom: .5em;
+  font-size: 1em;
+  border: 1px solid grey;
+}
+
+.modal_footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-content: center;
+  width: 100%;
+  height: auto;
+  padding: .25em;
+}
+
+.cancel_btn,
+.ok_btn {
+  text-align: center;
+  /* height: 1.2em; */
+  padding: 0.5em .75em;
+  border: 1px solid grey;
+  border-radius: .5em;
+  background-color: LightYellow;
+  transition-duration: 0.1s;
+}
+
+.ok_btn {
+  margin-left: 1em;
+}
+
+.confirm_modal {
+  /* height: 2em; */
+  align-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
