@@ -26,6 +26,8 @@ install:
   - yarn install
   - cd ../http2
   - yarn install
+  - cd ../http3
+  - yarn install
 build: off
 build_script:
   - cd ../env
@@ -49,6 +51,8 @@ build_script:
   - cd ../dnd2
   - yarn build
   - cd ../http2
+  - yarn build
+  - cd ../http3
   - yarn build
 test_script:
   - cd ../env
@@ -78,6 +82,8 @@ test_script:
   - cd ../dnd2
   - yarn test
   - cd ../http2
+  - yarn test
+  - cd ../http3
   - yarn test
 deploy_script:
   - git config --global credential.helper store
@@ -112,6 +118,8 @@ deploy_script:
   - mkdir ../gh/http
   - mkdir ../gh/http/2
   - mv ../http2/dist/* ../gh/http/2
+  - mkdir ../gh/http/3
+  - mv ../http3/dist/* ../gh/http/3
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
 cache:
   - node_modules

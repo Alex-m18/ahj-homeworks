@@ -8,7 +8,11 @@
 1. [Организация тестирования](testing/) ( https://alex-m18.github.io/ahj-homeworks/testing/1/ )
 1. [Работа с HTML-формами](forms/) ( https://alex-m18.github.io/ahj-homeworks/forms/1/ ; https://alex-m18.github.io/ahj-homeworks/forms/2/ )
 1. [Работа с файлами, DnD](dnd/) ( https://alex-m18.github.io/ahj-homeworks/dnd/1/ ; https://alex-m18.github.io/ahj-homeworks/dnd/2/ )
-1. [Работа с HTTP](http/) ( https://alex-m18.github.io/ahj-homeworks/tree/http (https://alex-m18-ahj-http.herokuapp.com) ; https://alex-m18.github.io/ahj-homeworks/http/2/ )
+1. [Работа с HTTP](http/)
+  1) Backend - https://alex-m18.github.io/ahj-homeworks/tree/http (https://alex-m18-ahj-http.herokuapp.com)
+  2) Frontend - https://alex-m18.github.io/ahj-homeworks/http/2/
+  3) Backend  - https://alex-m18.github.io/ahj-homeworks/tree/http3-backend (https://alex-m18-ahj-http3.herokuapp.com)
+  3) Frontend - https://alex-m18.github.io/ahj-homeworks/http/3/
 1. [EventSource, WebSockets](sse-ws/)
 1. [Анимации и CSS](anim/)
 1. [Geolocation, Notification, Media](media/)
