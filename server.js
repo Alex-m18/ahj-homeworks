@@ -17,15 +17,15 @@ if(!db.get('tickets').value()) setDefaultTickets(db);
 function setDefaultTickets(db) {
   db.defaults({
     tickets: [
-      { id: 1, name: 'Buy a bread', description: 'brown bread', status: false, created: new Date() },
-      { id: 2, name: 'Buy a milk', description: '2l', status: true, created: new Date() },
-      { id: 3, name: 'Buy a fish', description: 'tuna', status: false, created: new Date() },
-      { id: 4, name: 'Buy a car', description: 'something red', status: false, created: new Date() }
+      { id: '1', name: 'Buy a bread', description: 'brown bread', status: false, created: new Date() },
+      { id: '2', name: 'Buy a milk', description: '2l', status: true, created: new Date() },
+      { id: '3', name: 'Buy a fish', description: 'tuna', status: false, created: new Date() },
+      { id: '4', name: 'Buy a car', description: 'something red', status: false, created: new Date() }
     ]
   }).write();
 }
 
-// Koa body
+// Koa body initialize
 app.use(koaBody({
   urlencoded: true,
 }));
@@ -56,7 +56,7 @@ app.use(async (ctx, next) => {
     if (ctx.request.get("Access-Control-Request-Headers")) {
       ctx.response.set(
         "Access-Control-Allow-Headers",
-        ctx.request.get("Access-Control-Allow-Request-Headers")
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization",
       );
     }
     ctx.response.status = 204;
@@ -68,12 +68,13 @@ app.use(async (ctx, next) => {
   if (ctx.request.method === "GET") {
     if (ctx.request.url.startsWith('/tickets')) {
       if (ctx.request.query.id) {
-        const ticket = db.get('tickets').filter({ id: ctx.request.query.id }).value();
-        if (!ticket.length) {
+        const ticket = db.get('tickets').filter({ id: ctx.request.query.id }).value()[0];
+        if (!ticket) {
           ctx.response.status = 404;
           ctx.response.body = 'Ticket not found';
           return await next();
         }
+
         ctx.response.status = 200;
         ctx.response.body = ticket;
         return await next();
@@ -83,11 +84,11 @@ app.use(async (ctx, next) => {
       const tickets = db.get('tickets').value();
       
       ctx.response.body = Array.from(tickets).map((o) => ({
-          id: o.id,
-          name: o.name,
-          status: o.status,
-          created: o.created 
-        }));
+        id: o.id,
+        name: o.name,
+        status: o.status,
+        created: o.created 
+      }));
       return await next();
     }
   }
@@ -121,7 +122,7 @@ app.use(async (ctx, next) => {
     db.get('tickets').push(ticket).write();
 
     ctx.response.status = 200;
-    ctx.response.body = 'Ticket created';
+    ctx.response.body = ticket.id;
   }
   return await next();
 });
@@ -143,7 +144,7 @@ app.use(async (ctx, next) => {
       return await next();
     }
     
-    if (!db.get('tickets').filter({ id: ticket.id }).value().length) {
+    if (!db.get('tickets').filter({ id: ticket.id }).value()[0]) {
       ctx.response.status = 404;
       ctx.response.body = 'Ticket not found';
       return await next();
@@ -169,8 +170,8 @@ app.use(async (ctx, next) => {
       return await next();
     }
 
-    const ticket = db.get('tickets').filter({ id: ctx.request.query.id }).value();
-    if (!ticket.length) {
+    const ticket = db.get('tickets').filter({ id: ctx.request.query.id }).value()[0];
+    if (!ticket) {
       ctx.response.status = 404;
       ctx.response.body = 'Ticket not found';
       return await next();
@@ -180,7 +181,7 @@ app.use(async (ctx, next) => {
     ticketStatusUpdate.id = ctx.request.body.id;
     ticketStatusUpdate.status = ctx.request.body.status;
 
-    if (!ticketStatusUpdate) {
+    if (!ticketStatusUpdate.id) {
       ctx.response.status = 417;
       ctx.response.body = 'ticketStatusUpdate object expected';
       return await next();
@@ -188,7 +189,7 @@ app.use(async (ctx, next) => {
 
     if (ticketStatusUpdate.id !== ctx.request.query.id) {
       ctx.response.status = 409;
-      ctx.response.body = 'id conflict';
+      ctx.response.body = 'id conflict in request';
       return await next();
     }
 
@@ -212,13 +213,13 @@ app.use(async (ctx, next) => {
       return await next();
     }
 
-    const ticket = db.get('tickets').filter({ id: ctx.request.query.id }).value();
-    if (!ticket.length) {
+    const ticket = db.get('tickets').filter({ id: ctx.request.query.id }).value()[0];
+    if (!ticket) {
       ctx.response.status = 404;
       ctx.response.body = 'Ticket not found';
       return await next();
     }
-    console.log(ticket);
+
     db.get('tickets')
       .remove({ id: ctx.request.query.id })
       .write();
