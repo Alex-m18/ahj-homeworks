@@ -20,7 +20,7 @@ export default class DropApp {
     this.server.getList((pics) => {
       pics.forEach((pic) => {
         if (this.previews.filter((p) => p.name === pic.name).length) return;
-        this.previews.push(new Preview(pic.name, path.join(this.server.url, pic.name)));
+        this.previews.push(new Preview(pic.name, `${this.server.url}/${pic.name}`));
       });
       this.widget.update(this.previews);
     });
