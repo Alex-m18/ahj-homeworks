@@ -5,13 +5,13 @@ class Game {
     this.messages = messages;
     this.events = [];
     this.eventsListeners = [];
-    this.minTimeout = 3000;
-    this.maxTimeout = 10000;
+    this.minTimeout = 10000;
+    this.maxTimeout = 120000;
     this.messageCache = 50;
   }
 
   start(firstMessage) {
-    this.pushEvent({ type: 'start', message: firstMessage, date: new Date(), id: uuid.v4() });
+    this.pushEvent({ type: this.messages.types[0], message: firstMessage, date: new Date(), id: uuid.v4() });
     this.generateNextEvent();
   }
 
