@@ -1,0 +1,25 @@
+{
+  "name": "sse-ws-report-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Alex-m18",
+  "license": "MIT",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js",
+    "debug": "node --inspect server.js"
+  },
+  "engines": {
+    "node": "^13"
+  },
+  "dependencies": {
+    "forever": "^2.0.0",
+    "http-event-stream": "^0.2.0",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-router": "^8.0.8",
+    "lowdb": "^1.0.0",
+    "uuid": "^7.0.3"
+  }
+}
