@@ -64,6 +64,7 @@ router.get("/sse", async (ctx) => {
       return game.events.map(o => ({ id: o.id, event: 'message', data: JSON.stringify(o)}));
     },
     stream(sse) {
+      game.events.forEach((e) => sse.sendEvent({ id: e.id, event: 'message', data: JSON.stringify(e) }));
       const sendEvent = (event) => {
         sse.sendEvent({ id: event.id, event: 'message', data: JSON.stringify(event) });
       }; 
