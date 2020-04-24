@@ -18,7 +18,7 @@ class Game {
   generateNextEvent() {
     setTimeout(() => {
       this.pushEvent(this.getRandomEvent());
-      this.generateNextEvent();
+      if (this.events.length <= this.messageCache) this.generateNextEvent();
     },
       Math.random() * (this.maxTimeout - this.minTimeout) + this.minTimeout,
     );
@@ -26,7 +26,6 @@ class Game {
 
   pushEvent(event) {
     this.events.push(event);
-    if (this.events.length > this.messageCache) this.events.shift();
     this.notifyListeners();
   }
 
