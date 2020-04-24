@@ -5,8 +5,8 @@ class Game {
     this.messages = messages;
     this.events = [];
     this.eventsListeners = [];
-    this.minTimeout = 10000;
-    this.maxTimeout = 120000;
+    this.minTimeout = 5000;
+    this.maxTimeout = 20000;
     this.messageCache = 50;
   }
 
@@ -18,7 +18,11 @@ class Game {
   generateNextEvent() {
     setTimeout(() => {
       this.pushEvent(this.getRandomEvent());
-      if (this.events.length <= this.messageCache) this.generateNextEvent();
+      if (this.events.length < this.messageCache) {
+        this.generateNextEvent();
+      } else {
+        this.pushEvent({ type: this.messages.types[0], message: 'Игра окончена! Спасибо!', date: new Date(), id: uuid.v4() });
+      }
     },
       Math.random() * (this.maxTimeout - this.minTimeout) + this.minTimeout,
     );
