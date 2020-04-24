@@ -28,9 +28,11 @@ install:
   - yarn install
   - cd ../http3
   - yarn install
+  - cd ../sse-ws/online_report
+  - yarn install
 build: off
 build_script:
-  - cd ../env
+  - cd ../../env
   - yarn build
   - cd ../dom
   - yarn build
@@ -53,9 +55,11 @@ build_script:
   - cd ../http2
   - yarn build
   - cd ../http3
+  - yarn build
+  - cd ../sse-ws/online_report
   - yarn build
 test_script:
-  - cd ../env
+  - cd ../../env
   - yarn test
   - cd ../dom
   - yarn test
@@ -85,7 +89,10 @@ test_script:
   - yarn test
   - cd ../http3
   - yarn test
+  - cd ../sse-ws/online_report
+  - yarn test
 deploy_script:
+  - cd ..
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
@@ -120,6 +127,20 @@ deploy_script:
   - mv ../http2/dist/* ../gh/http/2
   - mkdir ../gh/http/3
   - mv ../http3/dist/* ../gh/http/3
+  - mkdir ../gh/sse-ws_online_report
+  - mv ../sse-ws/online_report/dist/* ../gh/sse-ws_online_report
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
 cache:
-  - node_modules
+  - env/node_modules
+  - dom/node_modules
+  - dom2/node_modules
+  - events/node_modules
+  - events2/node_modules
+  - testing/node_modules
+  - forms/node_modules
+  - forms2/node_modules
+  - dnd/node_modules
+  - dnd2/node_modules
+  - http2/node_modules
+  - http3/node_modules
+  - sse-ws/online_report/node_modules
