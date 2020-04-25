@@ -1,27 +1,38 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/c7ddm2v533f1eped?svg=true)](https://ci.appveyor.com/project/Alex-m18/ahj-homeworks)
+Правила сдачи задания:
 
-# Домашние задания к курсу «Продвинутый JavaScript в браузере»
+1. **Важно**: в рамках этого ДЗ можно использовать любой менеджер пакетов
+2. Всё должно собираться через Webpack (включая картинки и стили) и выкладываться на Github Pages через Appveyor
+3. В README.md должен быть размещён бейджик сборки и ссылка на Github Pages
+4. В качестве результата присылайте проверяющему ссылки на ваши GitHub-проекты
+5. Авто-тесты писать не требуется
+6. Серверная часть должна быть выложена на Heroku
 
-1. [Рабочее окружение](env/) ( https://alex-m18.github.io/ahj-homeworks/env/ )
-1. [DOM](dom/) ( https://alex-m18.github.io/ahj-homeworks/dom/1/ ; https://alex-m18.github.io/ahj-homeworks/dom/2/ )
-1. [Обработка событий](events/) ( https://alex-m18.github.io/ahj-homeworks/events/1/ ; https://alex-m18.github.io/ahj-homeworks/events/2/ )
-1. [Организация тестирования](testing/) ( https://alex-m18.github.io/ahj-homeworks/testing/1/ )
-1. [Работа с HTML-формами](forms/) ( https://alex-m18.github.io/ahj-homeworks/forms/1/ ; https://alex-m18.github.io/ahj-homeworks/forms/2/ )
-1. [Работа с файлами, DnD](dnd/) ( https://alex-m18.github.io/ahj-homeworks/dnd/1/ ; https://alex-m18.github.io/ahj-homeworks/dnd/2/ )
-1. [Работа с HTTP](http/)
-  1. Backend -  https://alex-m18-ahj-http.herokuapp.com          (https://github.com/Alex-m18/ahj-homeworks/tree/master/http)
-  1. Frontend - https://alex-m18.github.io/ahj-homeworks/http/2  (https://github.com/Alex-m18/ahj-homeworks/tree/master/http2)
-  1. Backend  - https://alex-m18-ahj-http3.herokuapp.com         (https://github.com/Alex-m18/ahj-homeworks/tree/http3-backend)
-  1. Frontend - https://alex-m18.github.io/ahj-homeworks/http/3/ (https://github.com/Alex-m18/ahj-homeworks/tree/master/http3)
-1. [EventSource, WebSockets](sse-ws/)
-  1. Backend -  https://alex-m18-ahj-sse-report.herokuapp.com                 (https://github.com/Alex-m18/ahj-homeworks/tree/sse-ws-reporting)
-  1. Frontend - https://alex-m18.github.io/ahj-homeworks/sse-ws_online_report (https://github.com/Alex-m18/ahj-homeworks/tree/master/sse-ws/online_report)
-1. [Анимации и CSS](anim/)
-1. [Geolocation, Notification, Media](media/)
-1. [RxJS](rxjs/)
-1. [WebWorkers, ServiceWorkers](workers/)
+---
 
-Полезные ссылки:
-* [требования к домашним работам](requirements.md)
-* [список рекомендуемого ПО](software.md)
-* [инструкция по работе в терминале](terminal.md)
+## Чат
+
+### Легенда
+
+В рамках реализации корпоративного портала вам поручили организовать чат, и, конечно же, вы решили для этого использовать веб-сокеты.
+
+### Описание
+
+Вам необходимо реализовать и серверную, и клиентскую часть. Серверную часть мы предлагаем вам реализовать на базе пакета ws, который был продемонстрирован на лекции.
+
+При загрузке страницы появляется всплывающее окно, в котором запрашивается никнейм, под которым вы будете зарегистрированы в чате:
+
+![](./pic/chat.png)
+
+Если такой никнейм свободен, то открывается окно чата, в противном же случае вы должны сообщить пользователю о том, что никнейм занят и ему необходимо выбрать другой (продумайте, как вы реализуете это).
+
+Общее окно чата:
+
+![](./pic/chat-2.png)
+
+Обратите внимание: сообщения всех участников чата (кроме ваших) выравниваются по левому краю, а ваши - по правому.
+
+Важно: `You` - это не никнейм, это указатель на то, что это Вы.
+
+Важная детально: при отключении пользователя он должен удаляться из списка пользователей в левой части.
+
+---
