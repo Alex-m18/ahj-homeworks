@@ -1,4 +1,3 @@
-const eventMessages = require('./eventMessages');
 const ChatServer = require('./ChatServer');
 
 const http = require("http");
@@ -8,11 +7,6 @@ const koaBody = require("koa-body");
 const Router = require('koa-router');
 const router = new Router();
 const app = new Koa();
-const { streamEvents } = require("http-event-stream");
-
-const path = require("path");
-const fs = require("fs");
-const uuid = require("uuid");
 
 const chat = new ChatServer();
 
