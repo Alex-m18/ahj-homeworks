@@ -1,0 +1,7 @@
+american_express_curved.png, 
+mastercard_curved.png, 
+visa_curved.png - 
+The Web Design Blog (free)
+Yes.svg,
+No.svg - 
+Alex-m18
