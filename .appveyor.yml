@@ -30,8 +30,6 @@ install:
   - yarn install
   - cd ../sse-ws/online_report
   - yarn install
-  - cd ../chat_room
-  - yarn install
 build: off
 build_script:
   - cd ../../env
@@ -59,8 +57,6 @@ build_script:
   - cd ../http3
   - yarn build
   - cd ../sse-ws/online_report
-  - yarn build
-  - cd ../chat_room
   - yarn build
 test_script:
   - cd ../../env
@@ -94,8 +90,6 @@ test_script:
   - cd ../http3
   - yarn test
   - cd ../sse-ws/online_report
-  - yarn test
-  - cd ../chat_room
   - yarn test
 deploy_script:
   - cd ..
@@ -135,8 +129,6 @@ deploy_script:
   - mv ../http3/dist/* ../gh/http/3
   - mkdir ../gh/sse-ws_online_report
   - mv ../sse-ws/online_report/dist/* ../gh/sse-ws_online_report
-  - mkdir ../gh/sse-ws_chat
-  - mv ../sse-ws/chat_room/dist/* ../gh/sse-ws_chat
   - npx push-dir --dir=../gh --branch=gh-pages --force --verbose
 cache:
   - env/node_modules
@@ -152,5 +144,4 @@ cache:
   - http2/node_modules
   - http3/node_modules
   - sse-ws/online_report/node_modules
-  - sse-ws/chat_room/node_modules
   

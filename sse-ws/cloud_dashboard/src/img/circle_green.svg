@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="filter608" color-interpolation-filters="sRGB">
+   <feMorphology in="SourceAlpha" radius="4.3" result="result91"/>
+   <feComposite in="SourceGraphic" in2="result91" operator="out"/>
+   <feGaussianBlur result="result0" stdDeviation="1.2"/>
+   <feDiffuseLighting>
+    <feDistantLight azimuth="225" elevation="66"/>
+   </feDiffuseLighting>
+   <feBlend in2="SourceGraphic" mode="multiply"/>
+   <feComposite in2="SourceAlpha" operator="in"/>
+  </filter>
+ </defs>
+ <g transform="translate(352.67 -111.49)" fill="#00d400">
+  <g transform="matrix(.88194 0 0 .88194 -351.61 112.55)" filter="url(#filter608)">
+   <g fill="#00d400">
+    <g fill="#00d400">
+     <path d="M 12,6 C 12,4.343 11.328,2.843 10.243,1.757 9.157,0.672 7.657,0 6,0 4.344,0 2.844,0.672 1.758,1.757 0.672,2.843 0,4.343 0,6 0,7.656 0.672,9.156 1.758,10.242 2.844,11.328 4.344,12 6,12 7.657,12 9.157,11.328 10.243,10.242 11.328,9.156 12,7.656 12,6 Z" fill="#00d400"/>
+    </g>
+   </g>
+  </g>
+  <g transform="matrix(.88194 0 0 .88194 -351.61 112.55)" filter="url(#filter608)">
+   <g fill="#00d400">
+    <g fill="#00d400">
+     <path d="M 12,6 C 12,4.343 11.328,2.843 10.243,1.757 9.157,0.672 7.657,0 6,0 4.344,0 2.844,0.672 1.758,1.757 0.672,2.843 0,4.343 0,6 0,7.656 0.672,9.156 1.758,10.242 2.844,11.328 4.344,12 6,12 7.657,12 9.157,11.328 10.243,10.242 11.328,9.156 12,7.656 12,6 Z" fill="#00d400"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
