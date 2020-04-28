@@ -58,6 +58,10 @@
   * [Backend Heroku](https://alex-m18-ahj-sse-chat.herokuapp.com)
   * [Backend GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-sse-ws-chat/tree/backend)
 ### Cloud Dashboard
+  * [Frontend GitHub Pages](https://alex-m18.github.io/ahj-homeworks-sse-ws-dashboard)
+  * [Frontend GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-sse-ws-dashboard) [![Build status](https://ci.appveyor.com/api/projects/status/m82mtcolfxi9p0ml?svg=true)](https://ci.appveyor.com/project/Alex-m18/ahj-homeworks-sse-ws-dashboard)
+  * [Backend Heroku](https://alex-m18-ahj-sse-dashboard.herokuapp.com/)
+  * [Backend GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-sse-ws-dashboard/tree/backend)
 ## [Анимации и CSS](anim/)
 ## [Geolocation, Notification, Media](media/)
 ## [RxJS](rxjs/)
