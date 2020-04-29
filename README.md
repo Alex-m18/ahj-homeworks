@@ -63,6 +63,8 @@
   * [Backend Heroku](https://alex-m18-ahj-sse-dashboard.herokuapp.com/)
   * [Backend GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-sse-ws-dashboard/tree/backend)
 ## [Анимации и CSS](anim/)
+  * [Frontend GitHub Pages](https://alex-m18.github.io/ahj-homeworks-anim)
+  * [Backend GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-anim) [![Build status](https://ci.appveyor.com/api/projects/status/j8d7apecdbvrfo04?svg=true)](https://ci.appveyor.com/project/Alex-m18/ahj-homeworks-anim)
 ## [Geolocation, Notification, Media](media/)
 ## [RxJS](rxjs/)
 ## [WebWorkers, ServiceWorkers](workers/)
