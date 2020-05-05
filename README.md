@@ -66,6 +66,8 @@
   * [GitHub Pages](https://alex-m18.github.io/ahj-homeworks-anim)
   * [GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-anim) [![Build status](https://ci.appveyor.com/api/projects/status/j8d7apecdbvrfo04?svg=true)](https://ci.appveyor.com/project/Alex-m18/ahj-homeworks-anim)
 ## [Geolocation, Notification, Media](media/)
+  * [GitHub Pages](https://alex-m18.github.io/ahj-homeworks-media)
+  * [GitHub Repository](https://github.com/Alex-m18/ahj-homeworks-media) [![Build status](https://ci.appveyor.com/api/projects/status/d1ns59e8ledvt3s5?svg=true)](https://ci.appveyor.com/project/Alex-m18/ahj-homeworks-media)
 ## [RxJS](rxjs/)
 ## [WebWorkers, ServiceWorkers](workers/)
 
